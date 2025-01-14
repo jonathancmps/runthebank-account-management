@@ -5,7 +5,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-//@ComponentScan(basePackages = "com.runthebank.account.management.infra.mapper")
 public class AccountManagementApplication {
 
 	public static void main(String[] args) {

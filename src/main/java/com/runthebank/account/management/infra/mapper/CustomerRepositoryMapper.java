@@ -11,7 +11,5 @@ public interface CustomerRepositoryMapper {
 
      Customer toDomain(CustomerData customerData);
 
-     Customer toDomainOptional(Optional<CustomerData> customerData);
-
      CustomerData toDataRepository(Customer customer);
 }

@@ -18,15 +18,13 @@ public class CustomerProviderImpl implements CustomerProvider {
     private CustomerRepositoryMapper mapper;
 
     @Override
+    public boolean findCustomerByDocumentNumber(String documentNumber) {
+        return customerRepository.existsByDocumentNumber(documentNumber);
+    }
+
+    @Override
     public Customer createCustomer(Customer customer) {
         CustomerData customerData = customerRepository.save(mapper.toDataRepository(customer));
         return mapper.toDomain(customerData);
     }
-
-    @Override
-    public boolean getCustomerByDocumentNumber(String documentNumber) {
-        return customerRepository.existsByDocumentNumber(documentNumber);
-
-    }
-
 }

@@ -1,6 +1,6 @@
 package com.runthebank.account.management.domain.usecase;
 
-import com.runthebank.account.management.domain.exception.BusinessExeption;
+import com.runthebank.account.management.domain.exception.DuplicatedResourceException;
 import com.runthebank.account.management.domain.model.Customer;
 import com.runthebank.account.management.domain.interfaces.CustomerProvider;
 
@@ -13,16 +13,16 @@ public class CustomerUseCase {
     }
 
     public Customer createCustomer(Customer customer) {
-        var existingCustomer =  getCustomerByDocumentNumber(customer.getDocumentNumber());
+        var existingCustomer =  findCustomerByDocumentNumber(customer.getDocumentNumber());
         if(existingCustomer) {
-            throw new BusinessExeption(String.format("Customer with document number %s is registred!",
+            throw new DuplicatedResourceException(String.format("customer with document number %s already registered",
                     customer.getDocumentNumber()));
         }
         return customerProvider.createCustomer(customer);
     }
 
-    public boolean getCustomerByDocumentNumber(String documentNumber) {
-        return customerProvider.getCustomerByDocumentNumber(documentNumber);
+    public boolean findCustomerByDocumentNumber(String documentNumber) {
+        return customerProvider.findCustomerByDocumentNumber(documentNumber);
     }
 
 }

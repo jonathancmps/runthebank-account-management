@@ -3,7 +3,7 @@ package com.runthebank.account.management.app.dto;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 
-public class CustomerDto {
+public class CustomerDTO {
 
     @NotBlank(message = "The document number is mandatory.")
     private String documentNumber;
