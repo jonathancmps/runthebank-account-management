@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.runthebank</groupId>
 	<artifactId>account-management</artifactId>
-	<version>0.2.1</version>
+	<version>0.3.0</version>
 	<name>Account Management</name>
 	<description>Api bank account management for run the bank challenge</description>
 	<url/>
