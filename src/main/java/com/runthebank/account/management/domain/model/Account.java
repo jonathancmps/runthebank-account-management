@@ -1,22 +1,34 @@
 package com.runthebank.account.management.domain.model;
 
+import com.runthebank.account.management.domain.enums.AccountStatus;
+
 import java.math.BigDecimal;
+import java.util.UUID;
 
 public class Account {
-    private Long id;
+    private UUID id;
+    public String documentNumber;
     private String bankCode;
     private String branchCode;
     private String accountNumber;
     private BigDecimal balance;
-    private String status;
+    private AccountStatus status;
     private Customer customer;
 
-    public Long getId() {
+    public UUID getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(UUID id) {
         this.id = id;
+    }
+
+    public String getDocumentNumber() {
+        return documentNumber;
+    }
+
+    public void setDocumentNumber(String documentNumber) {
+        this.documentNumber = documentNumber;
     }
 
     public String getBankCode() {
@@ -51,11 +63,11 @@ public class Account {
         this.balance = balance;
     }
 
-    public String getStatus() {
+    public AccountStatus getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(AccountStatus status) {
         this.status = status;
     }
 

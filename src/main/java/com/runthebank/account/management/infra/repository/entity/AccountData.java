@@ -1,7 +1,10 @@
 package com.runthebank.account.management.infra.repository.entity;
 
+import com.runthebank.account.management.domain.enums.AccountStatus;
 import jakarta.persistence.*;
 import lombok.Data;
+
+import java.util.UUID;
 
 @Data
 @Entity
@@ -9,8 +12,8 @@ import lombok.Data;
 public class AccountData {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private UUID id;
 
     @Column(name = "bank_code", nullable = false)
     private String bankCode;
@@ -24,6 +27,7 @@ public class AccountData {
     @Column
     private String balance;
 
-    @Column
-    private String status;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "status", nullable = false)
+    private AccountStatus status;
 }
